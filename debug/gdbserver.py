@@ -1866,7 +1866,7 @@ class UnavailableMultiTest(GdbTest):
                     self.gdb.p("$misa")
                     assert False, \
                         "Shouldn't be able to access unavailable hart."
-                except (UnknownThread, CommandException):
+                except (UnknownThread, CommandException, CouldNotReadRegisters):
                     pass
 
         # Check that the main hart can still be debugged.
